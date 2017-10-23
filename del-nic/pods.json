@@ -1,0 +1,3960 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"StatefulSet\",\"namespace\":\"kube-system\",\"name\":\"elasticsearch-logging-v1\",\"uid\":\"ff9b7e1d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"apps\",\"resourceVersion\":\"83\"}}\n",
+                    "pod.beta.kubernetes.io/hostname": "elasticsearch-logging-v1-0",
+                    "pod.beta.kubernetes.io/subdomain": "elasticsearch-logging",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"value\":\"log\", \"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "elasticsearch-logging-v1-",
+                "labels": {
+                    "k8s-app": "elasticsearch-logging",
+                    "version": "v1"
+                },
+                "name": "elasticsearch-logging-v1-0",
+                "namespace": "kube-system",
+                "resourceVersion": "463",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/elasticsearch-logging-v1-0",
+                "uid": "ff9c6ecc-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "MINIMUM_MASTER_NODES",
+                                "value": "2"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/elasticsearch:v5.4.0-1",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "elasticsearch-logging",
+                        "ports": [
+                            {
+                                "containerPort": 9200,
+                                "hostPort": 9200,
+                                "name": "db",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 9300,
+                                "hostPort": 9300,
+                                "name": "transport",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "requests": {
+                                "cpu": "1"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/data",
+                                "name": "es-persistent-storage"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-gh1kxwkk",
+                "nodeSelector": {
+                    "role": "log"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/data/es"
+                        },
+                        "name": "es-persistent-storage"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:22Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:31Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:22Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://ee13ce0a6550965c2615f0e429e167327d840ab810bb311b41212bbfe8356b3e",
+                        "image": "dockerhub.qingcloud.com/google_containers/elasticsearch:v5.4.0-1",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/elasticsearch@sha256:47407e86f283d7673c3e1fe9fdd46c0caca54f9b8ebec7064869076ad524a916",
+                        "lastState": {},
+                        "name": "elasticsearch-logging",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:30Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.55",
+                "phase": "Running",
+                "podIP": "192.168.4.239",
+                "startTime": "2017-07-20T04:08:22Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"StatefulSet\",\"namespace\":\"kube-system\",\"name\":\"elasticsearch-logging-v1\",\"uid\":\"ff9b7e1d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"apps\",\"resourceVersion\":\"86\"}}\n",
+                    "pod.beta.kubernetes.io/hostname": "elasticsearch-logging-v1-1",
+                    "pod.beta.kubernetes.io/subdomain": "elasticsearch-logging",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"value\":\"log\", \"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:31Z",
+                "generateName": "elasticsearch-logging-v1-",
+                "labels": {
+                    "k8s-app": "elasticsearch-logging",
+                    "version": "v1"
+                },
+                "name": "elasticsearch-logging-v1-1",
+                "namespace": "kube-system",
+                "resourceVersion": "608",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/elasticsearch-logging-v1-1",
+                "uid": "179958a0-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "MINIMUM_MASTER_NODES",
+                                "value": "2"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/elasticsearch:v5.4.0-1",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "elasticsearch-logging",
+                        "ports": [
+                            {
+                                "containerPort": 9200,
+                                "hostPort": 9200,
+                                "name": "db",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 9300,
+                                "hostPort": 9300,
+                                "name": "transport",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "requests": {
+                                "cpu": "1"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/data",
+                                "name": "es-persistent-storage"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-8cxns85l",
+                "nodeSelector": {
+                    "role": "log"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/data/es"
+                        },
+                        "name": "es-persistent-storage"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:31Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:39Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:31Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://055efbac78d6a169f0b25bc1cc299c75545311faa0e8db448c3f729ec0e8e369",
+                        "image": "dockerhub.qingcloud.com/google_containers/elasticsearch:v5.4.0-1",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/elasticsearch@sha256:47407e86f283d7673c3e1fe9fdd46c0caca54f9b8ebec7064869076ad524a916",
+                        "lastState": {},
+                        "name": "elasticsearch-logging",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:38Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.63",
+                "phase": "Running",
+                "podIP": "192.168.4.236",
+                "startTime": "2017-07-20T04:08:31Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "398aa81c96487974e4d2bfaa3cc20aaa",
+                    "kubernetes.io/config.mirror": "398aa81c96487974e4d2bfaa3cc20aaa",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705539461+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:50Z",
+                "labels": {
+                    "component": "etcd",
+                    "tier": "control-plane"
+                },
+                "name": "etcd-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385500",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/etcd-i-ughzhgyj",
+                "uid": "fed5c615-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "etcd",
+                            "--listen-client-urls=http://127.0.0.1:2379",
+                            "--advertise-client-urls=http://127.0.0.1:2379",
+                            "--data-dir=/var/etcd/data"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/etcd-amd64:2.2.5",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 8,
+                            "httpGet": {
+                                "host": "127.0.0.1",
+                                "path": "/health",
+                                "port": 2379,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 15
+                        },
+                        "name": "etcd",
+                        "resources": {
+                            "requests": {
+                                "cpu": "200m"
+                            }
+                        },
+                        "securityContext": {
+                            "seLinuxOptions": {
+                                "type": "unconfined_t"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/ssl/certs",
+                                "name": "certs"
+                            },
+                            {
+                                "mountPath": "/var/etcd",
+                                "name": "etcd"
+                            },
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "pki",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/ssl/certs"
+                        },
+                        "name": "certs"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/etcd"
+                        },
+                        "name": "etcd"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes"
+                        },
+                        "name": "pki"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:39:50Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:39:52Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://10b8eaa9062ba363c4e62bac8f007d37887b8dd8a11df3634ac5ad740accc310",
+                        "image": "dockerhub.qingcloud.com/google_containers/etcd-amd64:2.2.5",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/etcd-amd64@sha256:4cef1a273f8b5510055eed9c50d0fca945ba108ddbbab51cb12fa46ef6e1edba",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://abeeebb7adbb246771c521ad5c10633271b23f95852f505be87db54d7cdd645b",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "etcd",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-08-11T05:39:50Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"91\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-8wcjt",
+                "namespace": "kube-system",
+                "resourceVersion": "2947460",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-8wcjt",
+                "uid": "ffb06d94-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:40:10Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:09:24Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://b82bad1ff509ca3de0a73ff80066c820d8b47b846a63ad24af9c1f056c312a08",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://2927c0d05702f0066e3bcfbacfa12b3a8ab87ee0f7e8ea25f55c5296704f4376",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:04Z"
+                            }
+                        },
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:40:10Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.223",
+                "startTime": "2017-07-20T04:07:51Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"4644692\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-09-29T09:28:32Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-9vbwk",
+                "namespace": "kube-system",
+                "resourceVersion": "9710063",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-9vbwk",
+                "uid": "8fca5a85-a4f8-11e7-a0d9-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-e7futr2z",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:37Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:48Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:48Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://c2ab00a6573caa0aa7c97cc722516679f9ce9a89fdc0145c9aec98434f034478",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {},
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-09-29T09:28:48Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.114",
+                "phase": "Running",
+                "podIP": "192.168.4.143",
+                "startTime": "2017-09-29T09:28:37Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"457\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:33Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-d4m3t",
+                "namespace": "kube-system",
+                "resourceVersion": "16888759",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-d4m3t",
+                "uid": "18a6e55b-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-d2krw1je",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:38Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:45Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:45Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://c6233e641bf210727be27a8cb3e6c01fd7769e49368277147a20ac1504f42533",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {},
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:45Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.56",
+                "phase": "Running",
+                "podIP": "192.168.4.233",
+                "startTime": "2017-07-20T04:08:38Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"499\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:34Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-ddksk",
+                "namespace": "kube-system",
+                "resourceVersion": "4644691",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-ddksk",
+                "uid": "1949ca37-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-pw5tewjo",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:39Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-22T15:05:04Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:47Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://64e934286ed2566a90871e9cd113fd657524bcec325ca20bb8763cb727a5786a",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://3e72fe39b0f86519d98abed669f3be0d27a885969ab4ee38e1685da10ced4126",
+                                "exitCode": 137,
+                                "finishedAt": "2017-08-21T19:29:57Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:46Z"
+                            }
+                        },
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-22T15:05:04Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.64",
+                "phase": "Running",
+                "podIP": "192.168.4.232",
+                "startTime": "2017-07-20T04:08:39Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"264\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:10Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-fht2s",
+                "namespace": "kube-system",
+                "resourceVersion": "453",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-fht2s",
+                "uid": "0b14e292-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-gh1kxwkk",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:29Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:29Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://de7eab8a22ddd5220e0fb6d5a88b394132746d4c503f7714b9450fe158bb2776",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {},
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:29Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.55",
+                "phase": "Running",
+                "podIP": "192.168.4.243",
+                "startTime": "2017-07-20T04:08:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"fluent-bit\",\"uid\":\"ffafab3d-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"338\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:10Z",
+                "generateName": "fluent-bit-",
+                "labels": {
+                    "k8s-app": "fluent-bit-logging",
+                    "version": "v1"
+                },
+                "name": "fluent-bit-pgpl1",
+                "namespace": "kube-system",
+                "resourceVersion": "471",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/fluent-bit-pgpl1",
+                "uid": "0b1917c0-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_HOST",
+                                "value": "elasticsearch-logging"
+                            },
+                            {
+                                "name": "FLUENT_ELASTICSEARCH_PORT",
+                                "value": "9200"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "fluent-bit",
+                        "ports": [
+                            {
+                                "containerPort": 24224,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "memory": "150Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/log",
+                                "name": "varlog"
+                            },
+                            {
+                                "mountPath": "/data/var/lib/docker/containers",
+                                "name": "varlibdockercontainers",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-8cxns85l",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/var/log"
+                        },
+                        "name": "varlog"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/data/var/lib/docker/containers"
+                        },
+                        "name": "varlibdockercontainers"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:30Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:30Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://617f7c7687b3030285c73167f3c40c52ba5fb6ceaeb43f147eb5116d6cd4195b",
+                        "image": "dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset:0.11.13",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/fluent/fluent-bit-kubernetes-daemonset@sha256:108f1fad21537cf7eba7d9054f1684899da2941f8575e4fb6fba307462a21be6",
+                        "lastState": {},
+                        "name": "fluent-bit",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:30Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.63",
+                "phase": "Running",
+                "podIP": "192.168.4.240",
+                "startTime": "2017-07-20T04:08:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"kube-system\",\"name\":\"heapster-v1.4.0-1025554092\",\"uid\":\"1acbb8cd-6d01-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"571\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"value\":\"log\", \"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:37Z",
+                "generateName": "heapster-v1.4.0-1025554092-",
+                "labels": {
+                    "k8s-app": "heapster",
+                    "pod-template-hash": "1025554092",
+                    "version": "v1.4.0"
+                },
+                "name": "heapster-v1.4.0-1025554092-0lbfc",
+                "namespace": "kube-system",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "heapster-v1.4.0-1025554092",
+                        "uid": "1acbb8cd-6d01-11e7-8ab1-52547e29ed1b"
+                    }
+                ],
+                "resourceVersion": "783",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/heapster-v1.4.0-1025554092-0lbfc",
+                "uid": "1acc83ae-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/heapster",
+                            "--source=kubernetes:https://kubernetes.default.svc?insecure=true\u0026kubeletHttps=true\u0026useServiceAccount=true\u0026kubeletPort=10250",
+                            "--sink=elasticsearch:http://elasticsearch-logging:9200"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/heapster-amd64:v1.4.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/healthz",
+                                "port": 8082,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 180,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 5
+                        },
+                        "name": "heapster",
+                        "resources": {
+                            "limits": {
+                                "cpu": "88m",
+                                "memory": "204Mi"
+                            },
+                            "requests": {
+                                "cpu": "88m",
+                                "memory": "204Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/ssl/certs",
+                                "name": "ssl-certs",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/usr/share/ca-certificates",
+                                "name": "usr-ca-certs",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "heapster-token-ptqll",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "command": [
+                            "/eventer",
+                            "--source=kubernetes:https://kubernetes.default.svc?insecure=true\u0026kubeletHttps=true\u0026useServiceAccount=true\u0026kubeletPort=10250",
+                            "--sink=elasticsearch:http://elasticsearch-logging:9200"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/heapster-amd64:v1.4.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "eventer",
+                        "resources": {
+                            "limits": {
+                                "cpu": "100m",
+                                "memory": "199237632001m"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "199237632001m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/ssl/certs",
+                                "name": "ssl-certs",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/usr/share/ca-certificates",
+                                "name": "usr-ca-certs",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "heapster-token-ptqll",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "command": [
+                            "/pod_nanny",
+                            "--cpu=80m",
+                            "--extra-cpu=0.5m",
+                            "--memory=140Mi",
+                            "--extra-memory=4Mi",
+                            "--threshold=5",
+                            "--deployment=heapster-v1.4.0",
+                            "--container=heapster",
+                            "--poll-period=300000",
+                            "--estimator=exponential"
+                        ],
+                        "env": [
+                            {
+                                "name": "MY_POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "MY_POD_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/addon-resizer:1.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "heapster-nanny",
+                        "resources": {
+                            "limits": {
+                                "cpu": "50m",
+                                "memory": "90Mi"
+                            },
+                            "requests": {
+                                "cpu": "50m",
+                                "memory": "90Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "heapster-token-ptqll",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "command": [
+                            "/pod_nanny",
+                            "--cpu=100m",
+                            "--extra-cpu=0m",
+                            "--memory=190Mi",
+                            "--extra-memory=0.5Ki",
+                            "--threshold=5",
+                            "--deployment=heapster-v1.4.0",
+                            "--container=eventer",
+                            "--poll-period=300000",
+                            "--estimator=exponential"
+                        ],
+                        "env": [
+                            {
+                                "name": "MY_POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "MY_POD_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/addon-resizer:1.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "eventer-nanny",
+                        "resources": {
+                            "limits": {
+                                "cpu": "50m",
+                                "memory": "90Mi"
+                            },
+                            "requests": {
+                                "cpu": "50m",
+                                "memory": "90Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "heapster-token-ptqll",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-8cxns85l",
+                "nodeSelector": {
+                    "role": "log"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "heapster",
+                "serviceAccountName": "heapster",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/ssl/certs"
+                        },
+                        "name": "ssl-certs"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/usr/share/ca-certificates"
+                        },
+                        "name": "usr-ca-certs"
+                    },
+                    {
+                        "name": "heapster-token-ptqll",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "heapster-token-ptqll"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:37Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:09:22Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:37Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://d47a2e86649b79087f7f460bf1101c0f5e61ea790b6dd245f22d3e0d3464037d",
+                        "image": "dockerhub.qingcloud.com/google_containers/heapster-amd64:v1.4.0",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/heapster-amd64@sha256:ad344a0c27c67ee2977adfbdae3398d5744bbcd851d7f04fd6c0bee2f8f79241",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://fe87b4a74d0deb02883f3cf759b5be6e63ced2f508599241726a438f86b74536",
+                                "exitCode": 255,
+                                "finishedAt": "2017-07-20T04:09:03Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:57Z"
+                            }
+                        },
+                        "name": "eventer",
+                        "ready": true,
+                        "restartCount": 2,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:09:22Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://35cd05691db0fc12a9011bb2acceb35f6580c39b211f56073d88d119e9d60919",
+                        "image": "dockerhub.qingcloud.com/google_containers/addon-resizer:1.7",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/addon-resizer@sha256:6641a79190be0885f7f5d8bd91d901b9e638420f53e40f1420dc88b3573226a8",
+                        "lastState": {},
+                        "name": "eventer-nanny",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:50Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://2dc9e6e183c9b37e64009155e4213a28e3101fa7aa156634017f5a48a5db4c11",
+                        "image": "dockerhub.qingcloud.com/google_containers/heapster-amd64:v1.4.0",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/heapster-amd64@sha256:ad344a0c27c67ee2977adfbdae3398d5744bbcd851d7f04fd6c0bee2f8f79241",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://fc1ac60945b4092f2024d5de4dd1b931e64ffbc0138da059edca9e1d8fe30463",
+                                "exitCode": 255,
+                                "finishedAt": "2017-07-20T04:09:05Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:58Z"
+                            }
+                        },
+                        "name": "heapster",
+                        "ready": true,
+                        "restartCount": 2,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:09:22Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://c08c9e95e1375b7a01c06a24045c926f9504acf71876ef3f1e29dca8a78f045e",
+                        "image": "dockerhub.qingcloud.com/google_containers/addon-resizer:1.7",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/addon-resizer@sha256:6641a79190be0885f7f5d8bd91d901b9e638420f53e40f1420dc88b3573226a8",
+                        "lastState": {},
+                        "name": "heapster-nanny",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:50Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.63",
+                "phase": "Running",
+                "podIP": "192.168.4.234",
+                "startTime": "2017-07-20T04:08:37Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"kube-system\",\"name\":\"kibana-logging-833925020\",\"uid\":\"ffe4523f-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"139\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"value\":\"log\", \"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "kibana-logging-833925020-",
+                "labels": {
+                    "k8s-app": "kibana-logging",
+                    "pod-template-hash": "833925020"
+                },
+                "name": "kibana-logging-833925020-nprc9",
+                "namespace": "kube-system",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "kibana-logging-833925020",
+                        "uid": "ffe4523f-6d00-11e7-8ab1-52547e29ed1b"
+                    }
+                ],
+                "resourceVersion": "566",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kibana-logging-833925020-nprc9",
+                "uid": "ffe5479d-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ELASTICSEARCH_URL",
+                                "value": "http://elasticsearch-logging:9200"
+                            },
+                            {
+                                "name": "KIBANA_BASE_URL",
+                                "value": "/api/v1/proxy/namespaces/kube-system/services/kibana-logging"
+                            },
+                            {
+                                "name": "KIBANA_HOST",
+                                "value": "0.0.0.0"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/kibana:v5.4.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kibana-logging",
+                        "ports": [
+                            {
+                                "containerPort": 5601,
+                                "name": "ui",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-gh1kxwkk",
+                "nodeSelector": {
+                    "role": "log"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:22Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:36Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:22Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://cdd99468eb02b253168c448e4f72d366cd6a44ac2ac5ee6bac3a5b2e2d54353d",
+                        "image": "dockerhub.qingcloud.com/google_containers/kibana:v5.4.0",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kibana@sha256:c4b9f8a579497c91ce82226a6026f2bcfa077f5f0d8f0f6c4fe18e3672ee250c",
+                        "lastState": {},
+                        "name": "kibana-logging",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:36Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.55",
+                "phase": "Running",
+                "podIP": "192.168.4.237",
+                "startTime": "2017-07-20T04:08:22Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "e2e46d069f9fe3a5c0f9be53cbfa05b2",
+                    "kubernetes.io/config.mirror": "e2e46d069f9fe3a5c0f9be53cbfa05b2",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705543067+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:50Z",
+                "name": "kube-addon-manager-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385508",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-addon-manager-i-ughzhgyj",
+                "uid": "fef36e92-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-addon-manager-amd64:v1.5.4.qingcloud",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-addon-manager",
+                        "resources": {
+                            "requests": {
+                                "cpu": "5m",
+                                "memory": "100Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "addons",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/"
+                        },
+                        "name": "addons"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://a8a5b261ae664308438fa1c372700f7f668fdee879aeaf56996f630f9d461e0a",
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-addon-manager-amd64:v1.5.4.qingcloud",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kube-addon-manager-amd64@sha256:0327eae7f0dfd083955ea36281178209487a0aa2040ef00756dab87ae4685905",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://742d45e993922d2b5209271975d16158177af8e784f2eb56e4096baa61630166",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "kube-addon-manager",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-10-19T03:00:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "df737a076876b877f07a906b04955e70",
+                    "kubernetes.io/config.mirror": "df737a076876b877f07a906b04955e70",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705514638+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:50Z",
+                "labels": {
+                    "component": "kube-apiserver",
+                    "tier": "control-plane"
+                },
+                "name": "kube-apiserver-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385530",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-apiserver-i-ughzhgyj",
+                "uid": "ff11de9e-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "apiserver",
+                            "--v=1",
+                            "--insecure-bind-address=127.0.0.1",
+                            "--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,ResourceQuota",
+                            "--service-cluster-ip-range=10.96.0.0/16",
+                            "--service-account-key-file=/etc/kubernetes/pki/apiserver-key.pem",
+                            "--client-ca-file=/etc/kubernetes/pki/ca.pem",
+                            "--tls-cert-file=/etc/kubernetes/pki/apiserver.pem",
+                            "--tls-private-key-file=/etc/kubernetes/pki/apiserver-key.pem",
+                            "--token-auth-file=/etc/kubernetes/pki/tokens.csv",
+                            "--secure-port=6443",
+                            "--runtime-config",
+                            "batch/v2alpha1=true",
+                            "--allow-privileged",
+                            "--etcd-servers=http://127.0.0.1:2379",
+                            "--cloud-provider=qingcloud",
+                            "--cloud-config=/etc/kubernetes/qingcloud.conf"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 8,
+                            "httpGet": {
+                                "host": "127.0.0.1",
+                                "path": "/healthz",
+                                "port": 8080,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 15
+                        },
+                        "name": "kube-apiserver",
+                        "resources": {
+                            "requests": {
+                                "cpu": "250m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/ssl/certs",
+                                "name": "certs"
+                            },
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "pki",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "env": [
+                            {
+                                "name": "FROM_FILE",
+                                "value": "/etc/kubernetes/hosts"
+                            },
+                            {
+                                "name": "TO_FILE",
+                                "value": "/etc/hosts"
+                            },
+                            {
+                                "name": "CHECK_INTERVAL",
+                                "value": "2"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/qingcloud/file-sync:0.2",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "hosts-sync",
+                        "resources": {
+                            "limits": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            },
+                            "requests": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "pki",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/ssl/certs"
+                        },
+                        "name": "certs"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes"
+                        },
+                        "name": "pki"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://70097ec873630e1bc839e6dea9c16e6af2c363000586b42fc8cbd2d25c4e5877",
+                        "image": "dockerhub.qingcloud.com/qingcloud/file-sync:0.2",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/qingcloud/file-sync@sha256:888e0f219ad61bebdb07216af63c9dc00d91283c52b9edfe2bc2df1dd793aa55",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://660e6556da21a069c15349927a6cc94457b46b3545e10e1010692aff2e2a1627",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:49Z"
+                            }
+                        },
+                        "name": "hosts-sync",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://82715b4c1a97d574e5e6519d56853c6c6f5cd92595cccf26cd5ddb47e90c4f0c",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://89c826522691060258461af2a3afa50389dfe48c8519be15aae5c7288952ea32",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "kube-apiserver",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-10-19T03:00:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "0a38bb3be23bb934b7fc14b38cc47767",
+                    "kubernetes.io/config.mirror": "0a38bb3be23bb934b7fc14b38cc47767",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705528003+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:50Z",
+                "labels": {
+                    "component": "kube-controller-manager",
+                    "tier": "control-plane"
+                },
+                "name": "kube-controller-manager-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385487",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-controller-manager-i-ughzhgyj",
+                "uid": "ff4ef6ef-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "controller-manager",
+                            "--v=1",
+                            "--address=127.0.0.1",
+                            "--leader-elect",
+                            "--master=127.0.0.1:8080",
+                            "--cluster-name=kubernetes",
+                            "--root-ca-file=/etc/kubernetes/pki/ca.pem",
+                            "--service-account-private-key-file=/etc/kubernetes/pki/apiserver-key.pem",
+                            "--cluster-signing-cert-file=/etc/kubernetes/pki/ca.pem",
+                            "--cluster-signing-key-file=/etc/kubernetes/pki/ca-key.pem",
+                            "--insecure-experimental-approve-all-kubelet-csrs-for-group=system:kubelet-bootstrap",
+                            "--allocate-node-cidrs=false",
+                            "--service-cluster-ip-range=10.96.0.0/16",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--cloud-provider=qingcloud",
+                            "--cloud-config=/etc/kubernetes/qingcloud.conf"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 8,
+                            "httpGet": {
+                                "host": "127.0.0.1",
+                                "path": "/healthz",
+                                "port": 10252,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 15
+                        },
+                        "name": "kube-controller-manager",
+                        "resources": {
+                            "requests": {
+                                "cpu": "200m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/ssl/certs",
+                                "name": "certs"
+                            },
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "pki",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/etc/qingcloud/",
+                                "name": "qingcloud",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "env": [
+                            {
+                                "name": "FROM_FILE",
+                                "value": "/etc/kubernetes/hosts"
+                            },
+                            {
+                                "name": "TO_FILE",
+                                "value": "/etc/hosts"
+                            },
+                            {
+                                "name": "CHECK_INTERVAL",
+                                "value": "2"
+                            }
+                        ],
+                        "image": "dockerhub.qingcloud.com/qingcloud/file-sync:0.2",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "hosts-sync",
+                        "resources": {
+                            "limits": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            },
+                            "requests": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/kubernetes/",
+                                "name": "pki",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/ssl/certs"
+                        },
+                        "name": "certs"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes"
+                        },
+                        "name": "pki"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/etc/qingcloud"
+                        },
+                        "name": "qingcloud"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://8040a645b4c49e423f729c0353035c1e896da49d80f380129a13e72631772572",
+                        "image": "dockerhub.qingcloud.com/qingcloud/file-sync:0.2",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/qingcloud/file-sync@sha256:888e0f219ad61bebdb07216af63c9dc00d91283c52b9edfe2bc2df1dd793aa55",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://13004241cfe6dc3a7bc69bb6d664ee241fbc0bd611688c74840c3d9071f7281d",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "hosts-sync",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:52Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://26c99ff81e6fbf564d4b6702cebdc6761d4a91c3872d530f574bc159a7991263",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://f0d25c4e918ed32857a6186c5e872e5bcdd54e27ccac7c5b5ba74619505c8275",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "kube-controller-manager",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-10-19T03:00:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "ba9f6ca0bd66a5e649adf22642957a39",
+                    "kubernetes.io/config.mirror": "ba9f6ca0bd66a5e649adf22642957a39",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705531916+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:50Z",
+                "labels": {
+                    "component": "kube-discovery",
+                    "tier": "control-plane"
+                },
+                "name": "kube-discovery-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385520",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-discovery-i-ughzhgyj",
+                "uid": "ff306ab7-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/usr/local/bin/kube-discovery"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-discovery-amd64:1.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-discovery",
+                        "ports": [
+                            {
+                                "containerPort": 9898,
+                                "hostPort": 9898,
+                                "name": "http",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "seLinuxOptions": {
+                                "type": "unconfined_t"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp/secret",
+                                "name": "clusterinfo",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/pki"
+                        },
+                        "name": "clusterinfo"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://28ed6378a1f0636379255700bfd336126a0e3bdba3c37b342289dbfb3cb83d36",
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-discovery-amd64:1.0",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kube-discovery-amd64@sha256:1cb3628982ebbff7985c23cef26c9be7421756c4886b7a716f8159483a72a858",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://63007b0b3fc96539302f695dd092e818c3f13a3032637f200d7e9aaddde4322c",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "kube-discovery",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-10-19T03:00:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"kube-system\",\"name\":\"kube-dns-495197719\",\"uid\":\"ff82fe1b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"66\"}}\n",
+                    "scheduler.alpha.kubernetes.io/affinity": "{\"nodeAffinity\":{\"requiredDuringSchedulingIgnoredDuringExecution\":{\"nodeSelectorTerms\":[{\"matchExpressions\":[{\"key\":\"beta.kubernetes.io/arch\",\"operator\":\"In\",\"values\":[\"amd64\"]}]}]}}}",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\",\"value\":\"master\",\"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "kube-dns-495197719-",
+                "labels": {
+                    "component": "kube-dns",
+                    "k8s-app": "kube-dns",
+                    "name": "kube-dns",
+                    "pod-template-hash": "495197719",
+                    "tier": "node"
+                },
+                "name": "kube-dns-495197719-qw0fz",
+                "namespace": "kube-system",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "kube-dns-495197719",
+                        "uid": "ff82fe1b-6d00-11e7-8ab1-52547e29ed1b"
+                    }
+                ],
+                "resourceVersion": "13385513",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-dns-495197719-qw0fz",
+                "uid": "ff841685-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "args": [
+                            "--domain=cluster.local",
+                            "--dns-port=10053"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/kubedns-amd64:1.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 1,
+                            "httpGet": {
+                                "path": "/healthz",
+                                "port": 8080,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 60,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 5
+                        },
+                        "name": "kube-dns",
+                        "ports": [
+                            {
+                                "containerPort": 10053,
+                                "name": "dns-local",
+                                "protocol": "UDP"
+                            },
+                            {
+                                "containerPort": 10053,
+                                "name": "dns-tcp-local",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/readiness",
+                                "port": 8081,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 5
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "100m",
+                                "memory": "170Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "170Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "args": [
+                            "--cache-size=1000",
+                            "--no-resolv",
+                            "--server=127.0.0.1#10053"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-dnsmasq-amd64:1.3",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "dnsmasq",
+                        "ports": [
+                            {
+                                "containerPort": 53,
+                                "name": "dns",
+                                "protocol": "UDP"
+                            },
+                            {
+                                "containerPort": 53,
+                                "name": "dns-tcp",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "100m",
+                                "memory": "170Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "170Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "args": [
+                            "-cmd=nslookup kubernetes.default.svc.cluster.local 127.0.0.1:53 \u003e/dev/null \u0026\u0026 nslookup kubernetes.default.svc.cluster.local 127.0.0.1:10053 \u003e/dev/null",
+                            "-port=8080",
+                            "-quiet"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/exechealthz-amd64:1.1",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "healthz",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            },
+                            "requests": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "Default",
+                "nodeName": "i-ughzhgyj",
+                "nodeSelector": {
+                    "role": "master"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:27Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://56fe38debc4cb4413e92057c596c922952ae7058ae0ef81a60a1045957384c29",
+                        "image": "dockerhub.qingcloud.com/google_containers/kube-dnsmasq-amd64:1.3",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kube-dnsmasq-amd64@sha256:8c1eea818c004ea5dc4c1067157fe90933b41a9dfb9f38ef79082f9b8a08603b",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://7ce7965633aa961711e89d02b61a8a547a26b77bfbaca276b5513d7ff0c7244e",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:07Z"
+                            }
+                        },
+                        "name": "dnsmasq",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:40:06Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://b524c68b390ec53dfce155c4d2f3ef737b00108e9e12b25bf41340e675464b51",
+                        "image": "dockerhub.qingcloud.com/google_containers/exechealthz-amd64:1.1",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/exechealthz-amd64@sha256:199c4b6fac8da89b83d48da3a0f8daf459f2432269fc75a64aeca2b8ee9eb356",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://b01786b94b2320366e9b8cb930a750625b4368356f372d143ab65b15484e3842",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:07Z"
+                            }
+                        },
+                        "name": "healthz",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:40:06Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://d18e93c4621b67383e2e248400beee61a5df49351c7000550080142176689c6d",
+                        "image": "dockerhub.qingcloud.com/google_containers/kubedns-amd64:1.7",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kubedns-amd64@sha256:dbe1b1f987db1c72c91385737c7d6be6ce81d36924f8f3c9e2a75f204300f793",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://6725f3a361312e69f645e6edbea08212f6402d70dfeceb021ca1a94188610c48",
+                                "exitCode": 255,
+                                "finishedAt": "2017-09-28T02:04:43Z",
+                                "reason": "Error",
+                                "startedAt": "2017-09-20T17:04:49Z"
+                            }
+                        },
+                        "name": "kube-dns",
+                        "ready": true,
+                        "restartCount": 9,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-09-28T02:04:43Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.224",
+                "startTime": "2017-07-20T04:07:51Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"4644681\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-09-29T09:28:32Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-2p15m",
+                "namespace": "kube-system",
+                "resourceVersion": "9710037",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-2p15m",
+                "uid": "8fca3b24-a4f8-11e7-a0d9-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-e7futr2z",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:37Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:38Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-09-29T09:28:38Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://7a9e79d9efbda2061fcd86e7c6c0503c5a0340ae3b557401c8086d7171799436",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {},
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-09-29T09:28:38Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.114",
+                "phase": "Running",
+                "podIP": "192.168.4.114",
+                "startTime": "2017-09-29T09:28:37Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"412\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:33Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-85q5m",
+                "namespace": "kube-system",
+                "resourceVersion": "16888757",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-85q5m",
+                "uid": "18a70e05-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-d2krw1je",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:38Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:39Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:39Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://fd18447aaa82fa69cf9ab6454637545b931860301e0c1014e6dbe26ffd9c642c",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {},
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:38Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.56",
+                "phase": "Running",
+                "podIP": "192.168.4.56",
+                "startTime": "2017-07-20T04:08:38Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"201\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:10Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-c4mrt",
+                "namespace": "kube-system",
+                "resourceVersion": "414",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-c4mrt",
+                "uid": "0b14e8f3-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-gh1kxwkk",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:16Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://89037aff6e3536694cd5c9835e4730541ad8a1a207f64776e3f4c1f116be635c",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {},
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:16Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.55",
+                "phase": "Running",
+                "podIP": "192.168.4.55",
+                "startTime": "2017-07-20T04:08:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"79\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-q8hlh",
+                "namespace": "kube-system",
+                "resourceVersion": "2947286",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-q8hlh",
+                "uid": "ff954ca5-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:39:55Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://6c3ba72ef41c4e6cb64e23e7b71d2561a23461cffde86e7458885162e7e06d44",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://240733d7738a73013c24396fa75cef72840dd0a87e57ec0c65aea09e4c6ed809",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:52Z"
+                            }
+                        },
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:55Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-07-20T04:07:51Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"500\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:34Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-rnkxf",
+                "namespace": "kube-system",
+                "resourceVersion": "4644680",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-rnkxf",
+                "uid": "1949c6cd-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-pw5tewjo",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:39Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-22T15:05:03Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:40Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://29eb8f00af0bc92d4437f3a3be9442520bbbfed4a0e2b97cdf61158b8077e74c",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {},
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:40Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.64",
+                "phase": "Running",
+                "podIP": "192.168.4.64",
+                "startTime": "2017-07-20T04:08:39Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"DaemonSet\",\"namespace\":\"kube-system\",\"name\":\"kube-proxy\",\"uid\":\"ff943c5b-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"342\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"operator\": \"Exists\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:08:10Z",
+                "generateName": "kube-proxy-",
+                "labels": {
+                    "component": "kube-proxy",
+                    "k8s-app": "kube-proxy",
+                    "name": "kube-proxy",
+                    "tier": "node"
+                },
+                "name": "kube-proxy-wj24f",
+                "namespace": "kube-system",
+                "resourceVersion": "415",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-proxy-wj24f",
+                "uid": "0b19e10e-6d01-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "proxy",
+                            "--v=5",
+                            "--masquerade-all",
+                            "--feature-gates",
+                            "AllAlpha=true",
+                            "--kubeconfig=/run/kubeconfig"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "kube-proxy",
+                        "resources": {},
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/dbus",
+                                "name": "dbus"
+                            },
+                            {
+                                "mountPath": "/run/kubeconfig",
+                                "name": "kubeconfig"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-8cxns85l",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "hostPath": {
+                            "path": "/etc/kubernetes/kubelet.conf"
+                        },
+                        "name": "kubeconfig"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/dbus"
+                        },
+                        "name": "dbus"
+                    },
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:16Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:08:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://e5e9c7098c1b1a359cf4a5e39801a31d73739320a3c30b0517782e3b5214bc47",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {},
+                        "name": "kube-proxy",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-07-20T04:08:16Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.63",
+                "phase": "Running",
+                "podIP": "192.168.4.63",
+                "startTime": "2017-07-20T04:08:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/config.hash": "7cb388ad42753ab9c521588b9877ad86",
+                    "kubernetes.io/config.mirror": "7cb388ad42753ab9c521588b9877ad86",
+                    "kubernetes.io/config.seen": "2017-07-20T12:07:42.705535581+08:00",
+                    "kubernetes.io/config.source": "file"
+                },
+                "creationTimestamp": "2017-07-20T04:07:49Z",
+                "labels": {
+                    "component": "kube-scheduler",
+                    "tier": "control-plane"
+                },
+                "name": "kube-scheduler-i-ughzhgyj",
+                "namespace": "kube-system",
+                "resourceVersion": "13385474",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kube-scheduler-i-ughzhgyj",
+                "uid": "fec63e57-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/hyperkube",
+                            "scheduler",
+                            "--v=1",
+                            "--address=127.0.0.1",
+                            "--leader-elect",
+                            "--master=127.0.0.1:8080"
+                        ],
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 8,
+                            "httpGet": {
+                                "host": "127.0.0.1",
+                                "path": "/healthz",
+                                "port": 10251,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 15
+                        },
+                        "name": "kube-scheduler",
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-ughzhgyj",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:39:50Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:39:52Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-19T03:00:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://089d963133243f660db74a3c7358fd5c0cbd22f23b5b014a95592f16fd93476c",
+                        "image": "dockerhub.qingcloud.com/google_containers/hyperkube-amd64:qingcloud-21053bfc7e5c359c12404e233f66508e7fdb066f",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/hyperkube-amd64@sha256:d65623fce1389a8967022f8857078932e016b58e74a7903c895434fe949ffd69",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://34c6ae75969ce3722ebc61ad9cc2fc42c64ce7b97577c73adb656db9b18f134f",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:07:48Z"
+                            }
+                        },
+                        "name": "kube-scheduler",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:39:51Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.57",
+                "startTime": "2017-08-11T05:39:50Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"kube-system\",\"name\":\"kubernetes-dashboard-3942419996\",\"uid\":\"ff6f0557-6d00-11e7-8ab1-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"43\"}}\n",
+                    "scheduler.alpha.kubernetes.io/tolerations": "[{\"key\":\"dedicated\", \"value\":\"master\", \"effect\":\"NoSchedule\"}]"
+                },
+                "creationTimestamp": "2017-07-20T04:07:51Z",
+                "generateName": "kubernetes-dashboard-3942419996-",
+                "labels": {
+                    "k8s-app": "kubernetes-dashboard",
+                    "pod-template-hash": "3942419996"
+                },
+                "name": "kubernetes-dashboard-3942419996-jn4fq",
+                "namespace": "kube-system",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "kubernetes-dashboard-3942419996",
+                        "uid": "ff6f0557-6d00-11e7-8ab1-52547e29ed1b"
+                    }
+                ],
+                "resourceVersion": "2947372",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/kubernetes-dashboard-3942419996-jn4fq",
+                "uid": "ff6fdad5-6d00-11e7-8ab1-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "dockerhub.qingcloud.com/google_containers/kubernetes-dashboard-amd64:v1.5.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 9090,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 30
+                        },
+                        "name": "kubernetes-dashboard",
+                        "ports": [
+                            {
+                                "containerPort": 9090,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "100m",
+                                "memory": "50Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "50Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qp8t5",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "i-ughzhgyj",
+                "nodeSelector": {
+                    "role": "master"
+                },
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-qp8t5",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qp8t5"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-08-11T05:40:01Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-07-20T04:07:51Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://dc8c71c9f741cc7db07cafed2267ac54df9254ca0c38aa6b4a4a0e55e955832e",
+                        "image": "dockerhub.qingcloud.com/google_containers/kubernetes-dashboard-amd64:v1.5.0",
+                        "imageID": "docker-pullable://dockerhub.qingcloud.com/google_containers/kubernetes-dashboard-amd64@sha256:3bccb9256e8b14ae895d40d829ea45992389af3c1767a21eefbd4b3bf723f325",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://f9ea7071d0c6634cfd968c6efe69e547f6215be1eb03ea629b1929c691b62835",
+                                "exitCode": 255,
+                                "finishedAt": "2017-08-11T05:39:42Z",
+                                "reason": "Error",
+                                "startedAt": "2017-07-20T04:08:09Z"
+                            }
+                        },
+                        "name": "kubernetes-dashboard",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-08-11T05:40:01Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.57",
+                "phase": "Running",
+                "podIP": "192.168.4.227",
+                "startTime": "2017-07-20T04:07:51Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicaSet\",\"namespace\":\"kube-system\",\"name\":\"traefik-ingress-lb-3633902879\",\"uid\":\"ed6ceea4-96dd-11e7-a0d9-52547e29ed1b\",\"apiVersion\":\"extensions\",\"resourceVersion\":\"16779461\"}}\n"
+                },
+                "creationTimestamp": "2017-10-22T09:47:11Z",
+                "generateName": "traefik-ingress-lb-3633902879-",
+                "labels": {
+                    "k8s-app": "traefik-ingress-lb",
+                    "name": "traefik-ingress-lb",
+                    "pod-template-hash": "3633902879"
+                },
+                "name": "traefik-ingress-lb-3633902879-ztp85",
+                "namespace": "kube-system",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "traefik-ingress-lb-3633902879",
+                        "uid": "ed6ceea4-96dd-11e7-a0d9-52547e29ed1b"
+                    }
+                ],
+                "resourceVersion": "16780098",
+                "selfLink": "/api/v1/namespaces/kube-system/pods/traefik-ingress-lb-3633902879-ztp85",
+                "uid": "f9c6ffde-b70d-11e7-a0d9-52547e29ed1b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "args": [
+                            "--web",
+                            "--web.address=:8580",
+                            "--kubernetes"
+                        ],
+                        "image": "traefik",
+                        "imagePullPolicy": "Always",
+                        "name": "traefik-ingress-lb",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "hostPort": 80,
+                                "name": "http",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8580,
+                                "hostPort": 8580,
+                                "name": "admin",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "200m",
+                                "memory": "30Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "20Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "ingress-token-s86c4",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "hostNetwork": true,
+                "nodeName": "i-pw5tewjo",
+                "restartPolicy": "Always",
+                "securityContext": {},
+                "serviceAccount": "ingress",
+                "serviceAccountName": "ingress",
+                "terminationGracePeriodSeconds": 60,
+                "volumes": [
+                    {
+                        "name": "ingress-token-s86c4",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "ingress-token-s86c4"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-22T09:47:11Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-22T09:47:44Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2017-10-22T09:47:11Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://6e69866b90fa3b06716f31412c775146dfdf3d4a87e07e08860897069343414a",
+                        "image": "traefik",
+                        "imageID": "docker-pullable://traefik@sha256:aa8f397051feeb9f8db5cc8377f6f539b961adf5fe20f9940122b263a9c5aa99",
+                        "lastState": {},
+                        "name": "traefik-ingress-lb",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2017-10-22T09:47:43Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.4.64",
+                "phase": "Running",
+                "podIP": "192.168.4.64",
+                "startTime": "2017-10-22T09:47:11Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {},
+    "resourceVersion": "",
+    "selfLink": ""
+}
